@@ -1,0 +1,19 @@
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Urbana Qualifier">
+  <!-- Original mark: terraced Borobudur stupa + forward-motion base -->
+  <g stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- crowning stupa dome -->
+    <circle cx="22" cy="9" r="3.6" fill="none"/>
+    <!-- terrace 1 (top) -->
+    <path d="M14.5 17.5 L29.5 17.5 L26.5 14 L17.5 14 Z"/>
+    <!-- terrace 2 (middle) -->
+    <path d="M10 25 L34 25 L31 21.5 L13 21.5 Z"/>
+    <!-- terrace 3 (base) -->
+    <path d="M5.5 32.5 L38.5 32.5 L35 29 L9 29 Z"/>
+  </g>
+  <!-- motion lines -->
+  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity="0.9">
+    <line x1="6" y1="37.5" x2="20" y2="37.5"/>
+    <line x1="24" y1="37.5" x2="33" y2="37.5"/>
+    <line x1="37" y1="37.5" x2="39" y2="37.5"/>
+  </g>
+</svg>

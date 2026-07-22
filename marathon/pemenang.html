@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengumuman Pemenang · Urbana Qualifier — Borobudur Marathon 2026</title>
+  <meta name="description" content="Hasil resmi The Qualifier: 1.700 pelari tercepat yang mengunci slot Borobudur Marathon 2026. Cari namamu berdasarkan jarak (10K / Half / Full Marathon) dan kategori." />
+  <meta name="theme-color" content="#0E0E0E" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pemenang.css" />
+</head>
+<body>
+  <a class="skip-link" href="#hasil">Lewati ke hasil</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="siteHeader" data-state="top">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Borobudur Marathon 2026 — beranda">
+        <img class="brand__logo" src="assets/logo-borobudur.png" alt="Borobudur Marathon 2026" width="1200" height="442" />
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Navigasi utama">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Beranda</a></li>
+          <li><a class="nav__link" href="index.html#kategori">Kategori</a></li>
+          <li><a class="nav__link" href="index.html#cara-ikut">Cara Ikut</a></li>
+          <li><a class="nav__link" href="index.html#timeline">Timeline</a></li>
+          <li><a class="nav__link" href="index.html#faq">FAQ</a></li>
+          <li><a class="nav__link" href="pemenang.html" aria-current="page">Pemenang</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--accent btn--sm" href="index.html#cara-ikut">Cara Ikut</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="win-hero" aria-labelledby="win-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--accent reveal">The Qualifier · Hasil Resmi</p>
+        <h1 class="win-hero__title reveal" id="win-title">Pengumuman<br /><span class="txt-accent">Pemenang</span></h1>
+        <p class="win-hero__lead reveal">
+          Selamat kepada <strong>1.700 pelari tercepat</strong> yang mengunci slotnya di Borobudur Marathon 2026.
+          Cari namamu, cek catatan waktumu, lalu segera lunasi slot sebelum tenggat.
+        </p>
+        <ul class="win-meta reveal" aria-label="Ringkasan pengumuman">
+          <li><b>1 September 2026</b><span>Tanggal pengumuman</span></li>
+          <li><b>1.700</b><span>Total slot pemenang</span></li>
+          <li><b>2 × 24 jam</b><span>Batas pelunasan slot</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FINDER ================= -->
+    <section class="finder" id="hasil" aria-labelledby="finder-title">
+      <div class="container">
+        <h2 class="vh" id="finder-title">Cari pemenang</h2>
+
+        <div class="finder__bar">
+          <!-- Search -->
+          <div class="search">
+            <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="search" type="search" class="search__input" placeholder="Cari nama atau nomor BIB…"
+                   aria-label="Cari pemenang berdasarkan nama atau nomor BIB" autocomplete="off" />
+            <button id="searchClear" class="search__clear" type="button" aria-label="Hapus pencarian" hidden>&times;</button>
+          </div>
+
+          <!-- Distance tabs -->
+          <div class="tabs" id="distTabs" role="tablist" aria-label="Pilih jarak">
+            <button class="tab is-active" data-dist="10k" role="tab" aria-selected="true" aria-controls="resultsPanel" tabindex="0">10K</button>
+            <button class="tab" data-dist="hm" role="tab" aria-selected="false" aria-controls="resultsPanel" tabindex="-1">Half Marathon</button>
+            <button class="tab" data-dist="fm" role="tab" aria-selected="false" aria-controls="resultsPanel" tabindex="-1">Full Marathon</button>
+          </div>
+
+          <!-- Category chips -->
+          <div class="chips" id="catChips" role="group" aria-label="Pilih kategori"></div>
+        </div>
+
+        <div class="results" id="resultsPanel" role="tabpanel" aria-label="Daftar pemenang">
+          <div class="results__head">
+            <h3 class="results__title" id="resultTitle">Hasil</h3>
+            <p class="results__count" id="resultCount" aria-live="polite"></p>
+          </div>
+          <p class="results__hint" id="searchHint" hidden>
+            Menampilkan hasil pencarian di semua jarak &amp; kategori. Hapus pencarian untuk kembali memfilter.
+          </p>
+
+          <div class="table-wrap">
+            <table class="wtable">
+              <caption class="vh">Daftar pemenang beserta peringkat, catatan waktu, dan nomor BIB</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="col-rank">Peringkat</th>
+                  <th scope="col">Peserta</th>
+                  <th scope="col" class="col-time">Catatan Waktu</th>
+                  <th scope="col" class="col-bib">BIB</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+
+          <div class="empty" id="empty" hidden>
+            <strong>Tidak ada hasil.</strong>
+            <span>Coba kata kunci lain, atau pilih jarak &amp; kategori dari filter di atas.</span>
+          </div>
+        </div>
+
+        <p class="finder__note reveal">
+          Peringkat ditentukan dari <b>catatan waktu tercepat (single fastest effort)</b> dengan tie-breaker berbasis
+          timestamp. Pemenang wajib melunasi slot maksimal <b>2 × 24 jam</b> sejak pengumuman; slot yang tidak dilunasi
+          dialihkan otomatis ke peringkat berikutnya. Data pada halaman ini merupakan contoh untuk keperluan demonstrasi.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img class="brand__logo" src="assets/logo-gabung-legacy.png" alt="Borobudur Marathon 2026 — Decade of Legacy × Kompas.id" width="1200" height="191" />
+      </div>
+      <nav class="footer__nav" aria-label="Navigasi footer">
+        <a href="index.html">Beranda</a>
+        <a href="index.html#kategori">Kategori</a>
+        <a href="index.html#cara-ikut">Cara Ikut</a>
+        <a href="index.html#timeline">Timeline</a>
+        <a href="pemenang.html">Pemenang</a>
+      </nav>
+      <p class="footer__note">
+        Program kolaborasi Borobudur Marathon &amp; Harian Kompas dalam rangka Decade of Legacy.
+        Pemenang menerima undangan pelunasan resmi via email / aplikasi Bormar.
+      </p>
+      <p class="footer__legal">© 2026 · Halaman ini dibuat untuk keperluan demonstrasi konsep event.</p>
+    </div>
+  </footer>
+
+  <script src="js/pemenang.js" defer></script>
+</body>
+</html>
