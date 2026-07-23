@@ -273,19 +273,14 @@
     });
   }
 
-  wireAccordion(".cat__head", { itemSel: ".cat", exclusive: false });
   wireAccordion(".faq__q", { itemSel: ".faq__item", exclusive: true });
 
-  // buka kartu kategori pertama sebagai default agar terlihat interaktif
-  var firstCat = $(".cat__head");
-  if (firstCat) firstCat.click();
-
-  /* recalc tinggi panel yang terbuka saat resize */
+  /* recalc tinggi panel FAQ yang terbuka saat resize */
   var resizeTimer;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      $$(".cat__panel, .faq__a").forEach(function (p) {
+      $$(".faq__a").forEach(function (p) {
         if (!p.hidden && p.style.maxHeight !== "0px") p.style.maxHeight = "none";
       });
     }, 150);

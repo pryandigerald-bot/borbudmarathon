@@ -390,6 +390,11 @@ mark { background: rgba(243, 191, 73, 0.55); color: inherit; padding: 0 1px; bor
   /* search relocates to a header-triggered dropdown */
   .search-toggle { display: grid; }
   .finder__bar .search { display: none; }
+
+  /* compact input, sized for the header dropdown */
+  .search__input { padding: 0.6rem 2.5rem 0.6rem 2.5rem; font-size: 0.98rem; }
+  .search__clear { width: 26px; height: 26px; font-size: 1.15rem; }
+
   /* backdrop-filter makes .finder__bar a containing block for fixed children;
      drop it while the overlay is open so the overlay anchors to the viewport */
   body.search-open .finder__bar { backdrop-filter: none; -webkit-backdrop-filter: none; }
@@ -400,10 +405,16 @@ mark { background: rgba(243, 191, 73, 0.55); color: inherit; padding: 0 1px; bor
     left: 0; right: 0;
     z-index: 60;
     padding: 0.7rem var(--gutter) 0.8rem;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+    background: rgba(14, 14, 14, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(247, 246, 242, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   }
+  /* icon/clear are absolute to .search itself, so its own padding above must
+     be added back here or they drift away from the input's actual edges */
+  body.search-open .finder__bar .search .search__icon { left: calc(var(--gutter) + 0.8rem); }
+  body.search-open .finder__bar .search .search__clear { right: calc(var(--gutter) + 0.5rem); }
 
   /* category chips scroll horizontally */
   .chips {

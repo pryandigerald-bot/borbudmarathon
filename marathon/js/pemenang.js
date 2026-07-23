@@ -261,35 +261,57 @@
   });
 
   /* ---------- search ---------- */
+  var searchToggle = $("#searchToggle");
+  function closeSearchOverlay(focusToggle) {
+    document.body.classList.remove("search-open");
+    if (searchToggle) searchToggle.setAttribute("aria-expanded", "false");
+    elClear.hidden = !state.q;
+    if (focusToggle && searchToggle) searchToggle.focus();
+  }
   function debounce(fn, ms) { var t; return function () { var a = arguments, c = this; clearTimeout(t); t = setTimeout(function () { fn.apply(c, a); }, ms); }; }
   elSearch.addEventListener("input", debounce(function () {
     state.q = elSearch.value;
-    elClear.hidden = !state.q;
+    // while the mobile overlay is open, the clear button doubles as its close
+    // control and must stay visible even with an empty query
+    if (!document.body.classList.contains("search-open")) elClear.hidden = !state.q;
     render();
   }, 160));
   elClear.addEventListener("click", function () {
     state.q = "";
     elSearch.value = "";
-    elClear.hidden = true;
-    elSearch.focus();
     render();
+    if (document.body.classList.contains("search-open")) {
+      closeSearchOverlay(true);
+    } else {
+      elClear.hidden = true;
+      elSearch.focus();
+    }
   });
 
   /* ---------- mobile search toggle (header) ---------- */
-  var searchToggle = $("#searchToggle");
+  var scrollYAtOpen = 0;
   if (searchToggle) {
     searchToggle.addEventListener("click", function () {
       var open = document.body.classList.toggle("search-open");
       searchToggle.setAttribute("aria-expanded", String(open));
-      if (open) setTimeout(function () { elSearch.focus(); }, 60);
+      if (open) {
+        elClear.hidden = false;
+        scrollYAtOpen = window.scrollY;
+        setTimeout(function () { elSearch.focus(); }, 60);
+      } else {
+        elClear.hidden = !state.q;
+      }
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && document.body.classList.contains("search-open")) {
-        document.body.classList.remove("search-open");
-        searchToggle.setAttribute("aria-expanded", "false");
-        searchToggle.focus();
+        closeSearchOverlay(true);
       }
     });
+    // forgetting to close it is fine — scrolling the page dismisses it too
+    window.addEventListener("scroll", function () {
+      if (!document.body.classList.contains("search-open")) return;
+      if (Math.abs(window.scrollY - scrollYAtOpen) > 4) closeSearchOverlay(false);
+    }, { passive: true });
   }
 
   /* ---------- init ---------- */
