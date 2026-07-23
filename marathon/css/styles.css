@@ -492,42 +492,20 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
 .about__body p { margin: 0 0 1.15rem; color: var(--muted); }
 .about__body p strong { color: var(--ink); font-weight: 700; }
 
-.flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 0.6rem;
-  margin-top: clamp(2.2rem, 5vw, 3.5rem);
-}
-.flow__step {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1rem 1.3rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fff;
-  flex: 1 1 0;
-  min-width: 220px;
-}
-.flow__n {
+.about__timeline { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.about__timeline-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: #fff;
-  background: var(--accent);
-  width: 34px; height: 34px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  flex: none;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 0.4rem;
 }
-.flow__step div { display: flex; flex-direction: column; line-height: 1.15; }
-.flow__step b { font-weight: 700; font-size: 0.98rem; }
-.flow__step small { color: var(--muted); font-size: 0.78rem; }
-.flow__arrow { display: grid; place-items: center; color: var(--accent); font-weight: 700; font-size: 1.3rem; }
+.about__timeline .section-sub { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -716,12 +694,71 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
   max-width: 60ch;
 }
 
+/* ---------- tie-breaker explainer ---------- */
+.tiebreak {
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--line-on-dark);
+}
+.tiebreak__label {
+  margin: 0 0 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.tiebreak__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+.tiebreak__metric b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+}
+.tiebreak__metric p { margin: 0; color: var(--muted-on-dark); font-size: 0.88rem; }
+
+.tiebreak__example {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line-on-dark);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+.tiebreak__runner {
+  background: var(--ink-2);
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tiebreak__runner b { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; text-transform: uppercase; color: var(--paper); }
+.tiebreak__runner span { font-size: 0.84rem; color: var(--muted-on-dark); }
+
+.tiebreak__verdict {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--paper);
+  border-left: 3px solid var(--gold);
+  padding: 0.7rem 1rem;
+  background: rgba(243, 191, 73, 0.08);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.tiebreak__verdict b { color: var(--gold); }
+
 /* =========================================================
    TIMELINE
    ========================================================= */
-.section--timeline .h2 { margin-bottom: 0.4rem; }
-.section--timeline .section-sub { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
-
 .timeline {
   position: relative;
   display: grid;
@@ -935,13 +972,14 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
   .nav__link { font-size: 1.5rem; font-family: var(--font-display); text-transform: uppercase; padding: 0.5rem 0; }
   .nav__link::after { bottom: 4px; }
   .nav-toggle { display: flex; }
-  .header__actions .btn--accent { display: none; }
 
   .cats { grid-template-columns: 1fr; }
 
   .benefits { grid-template-columns: 1fr; }
-  .flow { flex-direction: column; align-items: stretch; }
-  .flow__arrow { transform: rotate(90deg); }
+
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .tiebreak__metrics { grid-template-columns: 1fr; }
+  .tiebreak__example { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 460px) {

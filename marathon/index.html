@@ -33,10 +33,10 @@
         <ul class="nav__list">
           <li><a class="nav__link" href="#beranda">Beranda</a></li>
           <li><a class="nav__link" href="#tentang">Tentang</a></li>
-          <li><a class="nav__link" href="#kategori">Kategori</a></li>
-          <li><a class="nav__link" href="#benefit">Benefit</a></li>
-          <li><a class="nav__link" href="#cara-ikut">Cara Ikut</a></li>
           <li><a class="nav__link" href="#timeline">Timeline</a></li>
+          <li><a class="nav__link" href="#benefit">Benefit</a></li>
+          <li><a class="nav__link" href="#kategori">Kategori</a></li>
+          <li><a class="nav__link" href="#cara-ikut">Cara Ikut</a></li>
           <li><a class="nav__link" href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -120,13 +120,69 @@
           </div>
         </div>
 
-        <ol class="flow reveal" aria-label="Alur singkat program">
-          <li class="flow__step"><span class="flow__n">1</span><div><b>Beli Koran Urbana</b><small>Tiket masuk resmi</small></div></li>
-          <li class="flow__arrow" aria-hidden="true">→</li>
-          <li class="flow__step"><span class="flow__n">2</span><div><b>Virtual Run</b><small>GPS via aplikasi Bormar</small></div></li>
-          <li class="flow__arrow" aria-hidden="true">→</li>
-          <li class="flow__step"><span class="flow__n">3</span><div><b>Menang Slot</b><small>Finisher tercepat lolos</small></div></li>
-        </ol>
+        <div class="about__timeline" id="timeline">
+          <h3 class="about__timeline-title reveal">Dari pre-order sampai garis start.</h3>
+          <p class="section-sub reveal">Lima fase, satu sprint. Tandai kalender Anda.</p>
+
+          <ol class="timeline">
+            <li class="tl reveal">
+              <div class="tl__marker" aria-hidden="true"><span></span></div>
+              <div class="tl__body">
+                <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 5h12v14H5a1 1 0 0 1-1-1V5z"/><path d="M16 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-2 0"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="15" x2="11" y2="15"/>
+                </svg>
+                <span class="tl__date">10–15 Agustus</span>
+                <h4 class="tl__phase">Fase 1 · Pre-Order</h4>
+                <p>Pesan paket Koran Urbana Edisi 22 Agustus. Kuota terbatas, siapa cepat dia dapat.</p>
+              </div>
+            </li>
+            <li class="tl reveal">
+              <div class="tl__marker" aria-hidden="true"><span></span></div>
+              <div class="tl__body">
+                <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4"/><line x1="12" y1="11" x2="12" y2="21"/><path d="M7.5 5.2l9 4"/>
+                </svg>
+                <span class="tl__date">19–21 Agustus</span>
+                <h4 class="tl__phase">Fase 2 · Distribusi</h4>
+                <p>Koran Urbana fisik tiba di alamat Anda — tiket masuk resmi ke tantangan.</p>
+              </div>
+            </li>
+            <li class="tl reveal tl--hot">
+              <div class="tl__marker" aria-hidden="true"><span></span></div>
+              <div class="tl__body">
+                <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>
+                </svg>
+                <span class="tl__date">22–26 Agustus</span>
+                <h4 class="tl__phase">Fase 3 · The Qualifier</h4>
+                <p>Taklukkan Virtual Run (10K / HM / FM) dengan GPS di aplikasi Bormar. Pantau posisi Anda di <b>leaderboard real-time</b>.</p>
+              </div>
+            </li>
+            <li class="tl reveal">
+              <div class="tl__marker" aria-hidden="true"><span></span></div>
+              <div class="tl__body">
+                <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>
+                </svg>
+                <span class="tl__date">27–29 Agustus</span>
+                <h4 class="tl__phase">Fase 4 · Verifikasi</h4>
+                <p>Sistem memfilter <b>single fastest effort</b> dan menerapkan tie-breaker waktu. Fair-play: pace tak wajar (&lt; 3:00/km) ditandai.</p>
+              </div>
+            </li>
+            <li class="tl reveal">
+              <div class="tl__marker" aria-hidden="true"><span></span></div>
+              <div class="tl__body">
+                <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5v1.5a3 3 0 0 0 3 3"/><path d="M17 5h2.5v1.5a3 3 0 0 1-3 3"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="8.5" y1="20" x2="15.5" y2="20"/><path d="M10 20l.4-3h3.2l.4 3"/>
+                </svg>
+                <span class="tl__date">1–2 September</span>
+                <h4 class="tl__phase">Fase 5 · Pemenang</h4>
+                <p>Pemenang menerima undangan resmi &amp; melunasi invoice maksimal <b>2×24 jam</b>. Selamat datang di garis start.</p>
+                <a class="tl__link" href="pemenang.html">Lihat pengumuman pemenang →</a>
+              </div>
+            </li>
+          </ol>
+        </div>
 
         <div class="stat-row reveal" aria-label="Ringkasan angka program">
           <div class="stat">
@@ -141,6 +197,50 @@
             <span class="stat__num">Rp<span data-count="350" data-suffix="K">0</span></span>
             <span class="stat__cap">Nilai benefit eksklusif per peserta</span>
           </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="4" data-suffix="">0</span></span>
+            <span class="stat__cap">Program Spesial dari Harian Kompas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ISI PAKET ================= -->
+    <section class="section section--benefit" id="benefit" aria-labelledby="benefit-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-no">02</span>
+          <p class="eyebrow">Isi Paket</p>
+        </div>
+        <div class="benefit__intro">
+          <h2 class="h2 reveal" id="benefit-title">Satu tiket, benefit berlapis.</h2>
+          <p class="section-sub reveal">
+            Setiap paket aktivasi Urbana Qualifier membawa benefit eksklusif senilai
+            <strong>Rp 350.000</strong> — kombinasi akses literasi, pelatihan, dan pengalaman yang tak ada di ballot reguler.
+          </p>
+        </div>
+
+        <div class="benefits">
+          <article class="benefit reveal">
+            <span class="benefit__no" aria-hidden="true">01</span>
+            <h3 class="benefit__title">Performa &amp; Pelatihan</h3>
+            <p><b>Hybrid Coaching selama 2 bulan</b> &amp; personalisasi training plan via partner, disiapkan agar Anda tampil terbaik di garis start.</p>
+          </article>
+          <article class="benefit reveal">
+            <span class="benefit__no" aria-hidden="true">02</span>
+            <h3 class="benefit__title">Eksklusivitas Bormar</h3>
+            <p>Koleksi <b>Zine 10th Bormar</b> (Running Culture) dan <b>grafir nama pada medali</b> — penanda satu dekade yang tak tergantikan.</p>
+          </article>
+          <article class="benefit reveal">
+            <span class="benefit__no" aria-hidden="true">03</span>
+            <h3 class="benefit__title">Merchandise &amp; Experience</h3>
+            <p><b>Kaos Off Race</b> eksklusif, <b>early access merch shopping</b> sebelum publik, dan <b>polaroid photo di RPC</b>.</p>
+          </article>
+          <article class="benefit reveal">
+            <span class="benefit__no" aria-hidden="true">04</span>
+            <h3 class="benefit__title">Akses Digital &amp; Literasi</h3>
+            <p>Akses penuh <b>Kompas.id selama 12 bulan</b> plus langganan <b>koran cetak 7 hari</b>. Berita, analisis, dan cerita di ujung jari Anda.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -149,7 +249,7 @@
     <section class="section section--cats" id="kategori" aria-labelledby="cats-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-no">02</span>
+          <span class="section-no">03</span>
           <p class="eyebrow eyebrow--light">Kategori, Cara Ikut &amp; Harga</p>
         </div>
         <h2 class="h2 h2--light reveal" id="cats-title">Tiga jarak, satu papan klasemen.</h2>
@@ -224,117 +324,33 @@
           </div>
           <p class="how__note">Slot yang tidak dilunasi dalam batas waktu otomatis dialihkan ke peringkat berikutnya di klasemen.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ================= BENEFIT ================= -->
-    <section class="section section--benefit" id="benefit" aria-labelledby="benefit-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-no">03</span>
-          <p class="eyebrow">Isi Paket</p>
+        <div class="tiebreak reveal">
+          <p class="tiebreak__label">Mekanisme Tie-Breaker Timestamp</p>
+          <div class="tiebreak__metrics">
+            <div class="tiebreak__metric">
+              <b>Metrik 1 · Sistem Filter Utama</b>
+              <p>Sistem hanya menarik rekor Single Fastest Effort terbaik milik satu akun dari seluruh percobaan selama 5 hari.</p>
+            </div>
+            <div class="tiebreak__metric">
+              <b>Metrik 2 · Tie-Breaker</b>
+              <p>Jika waktu lari sama persis, peringkat lebih tinggi diraih oleh peserta yang mencatat dan menyinkronkan data lebih awal (First to Submit).</p>
+            </div>
+          </div>
+          <div class="tiebreak__example">
+            <div class="tiebreak__runner">
+              <b>Pelari A</b>
+              <span>Waktu 00:55:00</span>
+              <span>Submit 22 Agustus, 07:00 WIB</span>
+            </div>
+            <div class="tiebreak__runner">
+              <b>Pelari B</b>
+              <span>Waktu 00:55:00</span>
+              <span>Submit 25 Agustus, 16:00 WIB (percobaan ketiga)</span>
+            </div>
+          </div>
+          <p class="tiebreak__verdict"><b>Keputusan Mutlak:</b> Pelari A menang, menempati peringkat lebih tinggi karena mencetak rekor (tanggal/jam) lebih awal.</p>
         </div>
-        <div class="benefit__intro">
-          <h2 class="h2 reveal" id="benefit-title">Satu tiket, benefit berlapis.</h2>
-          <p class="section-sub reveal">
-            Setiap paket aktivasi Urbana Qualifier membawa benefit eksklusif senilai
-            <strong>Rp 350.000</strong> — kombinasi akses literasi, pelatihan, dan pengalaman yang tak ada di ballot reguler.
-          </p>
-        </div>
-
-        <div class="benefits">
-          <article class="benefit reveal">
-            <span class="benefit__no" aria-hidden="true">01</span>
-            <h3 class="benefit__title">Performa &amp; Pelatihan</h3>
-            <p><b>Hybrid Coaching selama 2 bulan</b> &amp; personalisasi training plan via partner, disiapkan agar Anda tampil terbaik di garis start.</p>
-          </article>
-          <article class="benefit reveal">
-            <span class="benefit__no" aria-hidden="true">02</span>
-            <h3 class="benefit__title">Eksklusivitas Bormar</h3>
-            <p>Koleksi <b>Zine 10th Bormar</b> (Running Culture) dan <b>grafir nama pada medali</b> — penanda satu dekade yang tak tergantikan.</p>
-          </article>
-          <article class="benefit reveal">
-            <span class="benefit__no" aria-hidden="true">03</span>
-            <h3 class="benefit__title">Merchandise &amp; Experience</h3>
-            <p><b>Kaos Off Race</b> eksklusif, <b>early access merch shopping</b> sebelum publik, dan <b>polaroid photo di RPC</b>.</p>
-          </article>
-          <article class="benefit reveal">
-            <span class="benefit__no" aria-hidden="true">04</span>
-            <h3 class="benefit__title">Akses Digital &amp; Literasi</h3>
-            <p>Akses penuh <b>Kompas.id selama 12 bulan</b> plus langganan <b>koran cetak 7 hari</b>. Berita, analisis, dan cerita di ujung jari Anda.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TIMELINE ================= -->
-    <section class="section section--timeline" id="timeline" aria-labelledby="tl-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-no">04</span>
-          <p class="eyebrow">Perjalanan Peserta</p>
-        </div>
-        <h2 class="h2 reveal" id="tl-title">Dari pre-order sampai garis start.</h2>
-        <p class="section-sub reveal">Lima fase, satu sprint. Tandai kalender Anda.</p>
-
-        <ol class="timeline">
-          <li class="tl reveal">
-            <div class="tl__marker" aria-hidden="true"><span></span></div>
-            <div class="tl__body">
-              <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 5h12v14H5a1 1 0 0 1-1-1V5z"/><path d="M16 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-2 0"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="15" x2="11" y2="15"/>
-              </svg>
-              <span class="tl__date">10–15 Agustus</span>
-              <h3 class="tl__phase">Fase 1 · Pre-Order</h3>
-              <p>Pesan paket Koran Urbana Edisi 22 Agustus. Kuota terbatas, siapa cepat dia dapat.</p>
-            </div>
-          </li>
-          <li class="tl reveal">
-            <div class="tl__marker" aria-hidden="true"><span></span></div>
-            <div class="tl__body">
-              <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4"/><line x1="12" y1="11" x2="12" y2="21"/><path d="M7.5 5.2l9 4"/>
-              </svg>
-              <span class="tl__date">19–21 Agustus</span>
-              <h3 class="tl__phase">Fase 2 · Distribusi</h3>
-              <p>Koran Urbana fisik tiba di alamat Anda — tiket masuk resmi ke tantangan.</p>
-            </div>
-          </li>
-          <li class="tl reveal tl--hot">
-            <div class="tl__marker" aria-hidden="true"><span></span></div>
-            <div class="tl__body">
-              <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>
-              </svg>
-              <span class="tl__date">22–26 Agustus</span>
-              <h3 class="tl__phase">Fase 3 · The Qualifier</h3>
-              <p>Taklukkan Virtual Run (10K / HM / FM) dengan GPS di aplikasi Bormar. Pantau posisi Anda di <b>leaderboard real-time</b>.</p>
-            </div>
-          </li>
-          <li class="tl reveal">
-            <div class="tl__marker" aria-hidden="true"><span></span></div>
-            <div class="tl__body">
-              <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>
-              </svg>
-              <span class="tl__date">27–29 Agustus</span>
-              <h3 class="tl__phase">Fase 4 · Verifikasi</h3>
-              <p>Sistem memfilter <b>single fastest effort</b> dan menerapkan tie-breaker waktu. Fair-play: pace tak wajar (&lt; 3:00/km) ditandai.</p>
-            </div>
-          </li>
-          <li class="tl reveal">
-            <div class="tl__marker" aria-hidden="true"><span></span></div>
-            <div class="tl__body">
-              <svg class="tl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5v1.5a3 3 0 0 0 3 3"/><path d="M17 5h2.5v1.5a3 3 0 0 1-3 3"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="8.5" y1="20" x2="15.5" y2="20"/><path d="M10 20l.4-3h3.2l.4 3"/>
-              </svg>
-              <span class="tl__date">1–2 September</span>
-              <h3 class="tl__phase">Fase 5 · Pemenang</h3>
-              <p>Pemenang menerima undangan resmi &amp; melunasi invoice maksimal <b>2×24 jam</b>. Selamat datang di garis start.</p>
-              <a class="tl__link" href="pemenang.html">Lihat pengumuman pemenang →</a>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -342,7 +358,7 @@
     <section class="section section--faq" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-no">05</span>
+          <span class="section-no">04</span>
           <p class="eyebrow">Pertanyaan Umum</p>
         </div>
         <h2 class="h2 reveal" id="faq-title">Yang sering ditanyakan.</h2>
@@ -431,10 +447,10 @@
         </div>
         <nav class="footer__nav" aria-label="Navigasi footer">
           <a href="#tentang">Tentang</a>
-          <a href="#kategori">Kategori</a>
-          <a href="#benefit">Benefit</a>
-          <a href="#cara-ikut">Cara Ikut</a>
           <a href="#timeline">Timeline</a>
+          <a href="#benefit">Benefit</a>
+          <a href="#kategori">Kategori</a>
+          <a href="#cara-ikut">Cara Ikut</a>
           <a href="#faq">FAQ</a>
         </nav>
         <p class="footer__note">

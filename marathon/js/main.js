@@ -100,7 +100,7 @@
       revObs.observe(el);
     });
     // beri jeda kecil antar kartu yang berdekatan
-    $$(".benefits, .cats, .steps, .flow, .stat-row, .timeline, .faq, .win-meta").forEach(function (group) {
+    $$(".benefits, .cats, .steps, .stat-row, .timeline, .faq, .win-meta").forEach(function (group) {
       $$(".reveal", group).forEach(function (el, i) {
         el.style.transitionDelay = Math.min(i * 70, 350) + "ms";
       });
