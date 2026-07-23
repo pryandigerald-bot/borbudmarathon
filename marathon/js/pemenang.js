@@ -97,10 +97,14 @@
         var name = first + " " + pick(rng, LAST);
         var city = pick(rng, CITIES);
         var club = rng() < 0.55 ? pick(rng, CLUBS) : "";
+        var isMaster = c.key.indexOf("mas") === 0;
+        var birthYear = isMaster ? 1972 + Math.floor(rng() * 18) : 1990 + Math.floor(rng() * 16);
+        var subDate = (22 + Math.floor(rng() * 5)) + " Agu";
         DATA.push({
           dist: d.dist, distLabel: d.label,
           catKey: c.key, catLabel: c.label,
           rank: r, name: name, city: city, club: club,
+          gender: g === "f" ? "P" : "L", birthYear: birthYear, subDate: subDate,
           time: fmtTime(t), bib: bib
         });
       }
@@ -148,6 +152,7 @@
         '<td data-label="Peserta" class="c-name">' +
           '<span class="pname">' + highlight(w.name, q) + fastest + "</span>" +
           '<span class="ploc">' + esc(loc) + "</span>" +
+          '<span class="pmeta">' + esc(w.subDate + " · " + w.birthYear + " · " + w.gender) + "</span>" +
           catBadge +
         "</td>" +
         '<td data-label="Catatan Waktu" class="c-time">' + w.time + "</td>" +
@@ -269,6 +274,23 @@
     elSearch.focus();
     render();
   });
+
+  /* ---------- mobile search toggle (header) ---------- */
+  var searchToggle = $("#searchToggle");
+  if (searchToggle) {
+    searchToggle.addEventListener("click", function () {
+      var open = document.body.classList.toggle("search-open");
+      searchToggle.setAttribute("aria-expanded", String(open));
+      if (open) setTimeout(function () { elSearch.focus(); }, 60);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.body.classList.contains("search-open")) {
+        document.body.classList.remove("search-open");
+        searchToggle.setAttribute("aria-expanded", "false");
+        searchToggle.focus();
+      }
+    });
+  }
 
   /* ---------- init ---------- */
   buildChips();

@@ -93,6 +93,18 @@
 body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--paper); }
 body:not(.nav-open) .site-header[data-state="top"] .nav__link[aria-current="page"] { color: var(--gold); }
 
+/* mobile search toggle button (in header, next to menu) */
+.search-toggle {
+  display: none;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  place-items: center;
+  color: var(--ink);
+}
+.search-toggle svg { width: 22px; height: 22px; }
+.site-header[data-state="top"] .search-toggle { color: var(--paper); }
+body.search-open .search-toggle { color: var(--accent); }
+
 /* ---------- FINDER ---------- */
 .finder { padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(4rem, 8vw, 6rem); }
 
@@ -294,6 +306,7 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link[aria-current="page
 .c-name { line-height: 1.25; }
 .pname { display: block; font-weight: 700; font-size: 1.02rem; }
 .ploc { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.pmeta { display: none; font-size: 0.8rem; color: var(--muted); margin-top: 3px; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
 .pcat {
   display: inline-block;
   margin-top: 0.4rem;
@@ -370,40 +383,63 @@ mark { background: rgba(243, 191, 73, 0.55); color: inherit; padding: 0 1px; bor
   }
 }
 
-/* table becomes cards */
+/* mobile: header-triggered search, scrollable chips, compact cards */
 @media (max-width: 720px) {
   .finder__bar { top: var(--header-h); }
-  .wtable, .wtable tbody, .wtable tr, .wtable td { display: block; width: 100%; }
+
+  /* search relocates to a header-triggered dropdown */
+  .search-toggle { display: grid; }
+  .finder__bar .search { display: none; }
+  /* backdrop-filter makes .finder__bar a containing block for fixed children;
+     drop it while the overlay is open so the overlay anchors to the viewport */
+  body.search-open .finder__bar { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  body.search-open .finder__bar .search {
+    display: block;
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0;
+    z-index: 60;
+    padding: 0.7rem var(--gutter) 0.8rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+  }
+
+  /* category chips scroll horizontally */
+  .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+    scroll-snap-type: x proximity;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; white-space: nowrap; scroll-snap-align: start; }
+
+  /* results table → compact two-line cards */
+  .wtable, .wtable tbody { display: block; width: 100%; }
   .wtable thead { position: absolute; left: -9999px; }
-  .wtable .col-time, .wtable .col-bib { width: auto; }
   .wtable tbody tr {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 0.85rem;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 0.6rem 1rem 0.9rem;
-    margin-bottom: 0.7rem;
+    padding: 0.7rem 0.85rem;
+    margin-bottom: 0.55rem;
     background: #fff;
   }
   .wtable tbody tr:hover { background: #fff; }
-  .wtable tbody td {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--line);
-    text-align: right;
-  }
-  .wtable tbody td:last-child { border-bottom: 0; }
-  .wtable tbody td::before {
-    content: attr(data-label);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: left;
-  }
-  .c-name { text-align: right; }
-  .c-name .pname, .c-name .ploc, .c-name .pcat { text-align: right; }
-  .c-time { font-size: 1.3rem; }
+  .wtable tbody td { display: block; padding: 0; border: 0; text-align: left; }
+  .wtable tbody td::before { content: none; }
+  .c-rank { grid-column: 1; }
+  .c-name { grid-column: 2; min-width: 0; }
+  .c-time { grid-column: 3; text-align: right; font-size: 1.2rem; white-space: nowrap; }
+  .wtable tbody td.c-bib { display: none; }
+  .c-name .ploc { display: none; }
+  .c-name .pmeta { display: block; }
+  .c-name .pname { font-size: 1rem; }
+  .c-name .pcat { margin-top: 0.35rem; }
 }

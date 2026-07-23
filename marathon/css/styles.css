@@ -594,13 +594,29 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
 .cat__head {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 1.4rem;
+  gap: clamp(0.9rem, 2.5vw, 1.6rem);
   padding: clamp(1.3rem, 3vw, 2.1rem) clamp(1.3rem, 3vw, 2.2rem);
   text-align: left;
 }
 .cat__meta { display: flex; flex-direction: column; gap: 0.3rem; }
+.cat__price { display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; text-align: right; }
+.cat__price small {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.cat__price b {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.9rem + 1.3vw, 1.9rem);
+  line-height: 0.9;
+  color: var(--accent);
+  white-space: nowrap;
+}
 .cat__name {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 1rem + 2.4vw, 2.8rem);
@@ -630,26 +646,27 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
   overflow: hidden;
   transition: max-height 0.45s var(--ease);
 }
-.breakdown {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
+.segtags__label {
+  margin: 0 0 0.9rem;
+  padding-top: 1.1rem;
   border-top: 1px solid var(--line-on-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
 }
-.breakdown li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.9rem 0;
-  border-bottom: 1px solid var(--line-on-dark);
+.segtags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.segtags li {
+  border: 1px solid var(--line-on-dark);
+  border-radius: 999px;
+  padding: 0.5rem 1.05rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: rgba(247, 246, 242, 0.05);
 }
-.breakdown li:nth-child(odd) { padding-right: 1.4rem; border-right: 1px solid var(--line-on-dark); }
-.breakdown li:nth-child(even) { padding-left: 1.4rem; }
-.breakdown span { color: var(--muted-on-dark); font-size: 0.9rem; }
-.breakdown b { font-family: var(--font-display); font-size: 1.4rem; }
-.breakdown--extra { color: var(--gold); }
-.breakdown--extra span, .breakdown--extra b { color: var(--gold); }
-.breakdown--extra { grid-column: 1 / -1; border-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+.segtags--extra { color: var(--gold); border-color: rgba(243, 191, 73, 0.55); background: rgba(243, 191, 73, 0.08); }
 
 /* =========================================================
    BENEFIT
@@ -689,116 +706,36 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
 .benefit p b { color: var(--ink); font-weight: 700; }
 
 /* =========================================================
-   CARA IKUT (dark)
+   CARA IKUT & HARGA (merged into the Kategori section)
    ========================================================= */
-.section--how { background: #c60000; color: var(--paper); }
-
-.how__grid {
+.how__after {
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--line-on-dark);
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: center;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: start;
 }
-.how__intro .section-head { margin-bottom: 1.4rem; }
-.how__intro .h2 { margin-bottom: 1.3rem; }
-.how__intro .section-sub { margin-top: 0; }
-.how__card { width: 100%; max-width: 500px; justify-self: end; }
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  align-items: stretch;
-}
-.step {
-  border: 1px solid var(--line-on-dark);
-  border-radius: var(--radius);
-  padding: clamp(1.6rem, 3vw, 2.3rem);
-  background: var(--ink-2);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
-}
-.step:hover { transform: translateY(-4px); border-color: rgba(247, 246, 242, 0.35); }
-.step--accent { background: var(--accent); border-color: var(--accent); }
-.step--accent:hover { border-color: #fff; }
-
-.step__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.4rem; }
-.step__badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted-on-dark);
-}
-.step--accent .step__badge { color: rgba(255,255,255,0.85); }
-.step__price {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  color: var(--accent);
-}
-.step--accent .step__price { color: #fff; }
-.step__title {
+.how__after-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.1rem);
+  font-size: clamp(1.6rem, 1rem + 2vw, 2.6rem);
   text-transform: uppercase;
   line-height: 1;
-  margin-bottom: 0.9rem;
+  color: var(--paper);
+  margin-bottom: 1rem;
 }
-.step__desc { color: var(--muted-on-dark); margin: 0 0 1.3rem; font-size: 0.98rem; }
-.step--accent .step__desc { color: rgba(255,255,255,0.92); }
-.step__desc b { color: var(--paper); font-weight: 700; }
-.step--accent .step__desc b { color: #fff; }
-
-.step__list { margin-top: auto; display: flex; flex-direction: column; gap: 0.55rem; }
-.step__list li {
-  position: relative;
-  padding-left: 1.4rem;
-  font-size: 0.9rem;
-  color: var(--muted-on-dark);
-}
-.step__list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.55em;
-  width: 8px; height: 8px;
-  background: var(--accent);
-  transform: rotate(45deg);
-}
-.step--accent .step__list li { color: rgba(255,255,255,0.92); }
-.step--accent .step__list li::before { background: #fff; }
-
-.pricegrid { margin-top: auto; display: flex; flex-direction: column; }
-.pricegrid li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-top: 1px solid rgba(255,255,255,0.28);
-}
-.pricegrid span { font-size: 0.92rem; color: rgba(255,255,255,0.92); }
-.pricegrid b { font-family: var(--font-display); font-size: 1.35rem; color: #fff; }
+.how__after .section-sub { margin: 0; }
 
 .how__note {
-  margin-top: 1.8rem;
+  margin: 0;
   font-size: 0.86rem;
   color: var(--muted-on-dark);
   border-left: 3px solid var(--accent);
   padding-left: 1rem;
   max-width: 60ch;
 }
-
-/* Cara Ikut & Harga — gold price card on the red section */
-.section--how .how__note { color: rgba(255, 255, 255, 0.86); border-left-color: #f7ab1c; }
-.section--how .how__card { background: #f7ab1c; border-color: #f7ab1c; }
-.section--how .how__card:hover { border-color: #fff; }
-.section--how .how__card .step__badge { color: rgba(0, 0, 0, 0.55); }
-.section--how .how__card .step__price { color: var(--ink); }
-.section--how .how__card .step__title { color: var(--ink); }
-.section--how .how__card .pricegrid li { border-top-color: rgba(0, 0, 0, 0.22); }
-.section--how .how__card .pricegrid span { color: rgba(0, 0, 0, 0.72); }
-.section--how .how__card .pricegrid b { color: var(--ink); }
 
 /* =========================================================
    TIMELINE
@@ -844,6 +781,13 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
 @keyframes ping {
   0% { transform: scale(0.7); opacity: 0.7; }
   70%, 100% { transform: scale(1.5); opacity: 0; }
+}
+.tl__icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
 }
 .tl__date {
   display: inline-block;
@@ -988,14 +932,11 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
    ========================================================= */
 @media (max-width: 980px) {
   .about__grid { grid-template-columns: 1fr; }
-  .how__grid { grid-template-columns: 1fr; gap: 2.4rem; }
-  .how__card { justify-self: stretch; max-width: 560px; }
-  .steps { grid-template-columns: 1fr; }
+  .how__after { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: 1fr; gap: 0; }
   .timeline::before { top: 0; bottom: 0; left: 9px; right: auto; width: 2px; height: auto; }
   .tl { padding-top: 0; padding-left: 2.6rem; padding-bottom: 2.2rem; }
   .tl__marker { top: 2px; left: 0; }
-  .stat-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 760px) {
@@ -1017,8 +958,10 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
   .nav-toggle { display: flex; }
   .header__actions .btn--accent { display: none; }
 
-  .cat__head { gap: 0.8rem; }
-  .cat__chev { grid-column: 2; justify-self: end; }
+  .cat__head { grid-template-columns: 1fr auto; row-gap: 0.85rem; column-gap: 0.8rem; }
+  .cat__meta { grid-row: 1; grid-column: 1; }
+  .cat__chev { grid-row: 1; grid-column: 2; justify-self: end; }
+  .cat__price { grid-row: 2; grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 0.5rem; text-align: left; }
 
   .benefits { grid-template-columns: 1fr; }
   .flow { flex-direction: column; align-items: stretch; }
@@ -1026,10 +969,9 @@ body:not(.nav-open) .site-header[data-state="top"] .nav__link { color: var(--pap
 }
 
 @media (max-width: 460px) {
-  .stat-row { grid-template-columns: 1fr; }
-  .breakdown { grid-template-columns: 1fr; }
-  .breakdown li:nth-child(odd) { padding-right: 0; border-right: 0; }
-  .breakdown li:nth-child(even) { padding-left: 0; }
+  .stat { padding: 1.05rem 0.7rem; gap: 0.4rem; }
+  .stat__num { font-size: clamp(1.35rem, 4.6vw, 1.9rem); }
+  .stat__cap { font-size: 0.66rem; letter-spacing: 0; }
   .hero__cta .btn, .cta__actions .btn { flex: 1 1 100%; }
 }
 
