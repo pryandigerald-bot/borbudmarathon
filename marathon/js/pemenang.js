@@ -199,7 +199,7 @@
     var dc = distConfig(state.dist);
     var cc = catConfig(state.dist, state.cat);
     var list = DATA.filter(function (w) { return w.dist === state.dist && w.catKey === state.cat; });
-    elTitle.textContent = dc.label + " — " + cc.label;
+    elTitle.textContent = dc.label + " · " + cc.label;
     elCount.textContent = idNum(list.length) + " pemenang";
     paint(list, { showCat: false, q: "" });
   }
